@@ -1,0 +1,24 @@
+@(tasks:List[Task])
+
+@main("Task Tracker"){
+<h2> Task tracker</h2>
+
+<div>
+    <form action="@routes.TaskController.newTask()" method="post">
+
+        <input type="text" name="taskName" placeholder="add a new task" required>
+        <input type="submit" value="Add">
+    </form>
+
+    <div>
+        <ul>
+            @tasks.map{ task =>
+
+            <li>
+                @task.name
+            </li>
+            }
+        </ul>
+    </div>
+</div>
+}
